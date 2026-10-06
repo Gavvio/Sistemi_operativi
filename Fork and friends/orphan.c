@@ -31,13 +31,12 @@ int main(int argc, char** argv) {
 					printf("Sono il processo: %d, figlio di: %d \n", getpid(), getppid());
 					sleep(10);
 					printf("Sono il processo: %d, figlio di: %d \n", getpid(), getppid());
-				}
-				else {
-					//padre
-					sleep(5);
-					printf("processo padre termina senza aspettare \n");
+                    _exit(0);
 				}
 			}
 		}
+        //padre
+		sleep(5);
+		printf("processo padre termina senza aspettare \n");
 	}
 }

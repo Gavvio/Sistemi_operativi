@@ -29,14 +29,15 @@ int main(int argc, char** argv) {
 				else if (pid == 0) {
 					//figlio
 					printf("Sono il processo: %d, figlio di: %d \n", getpid(), getppid());
-				}
-				else {
-					//padre
-					sleep(30);
-					wait(NULL);
-					printf("processo padre termina aspettando e dormendo \n");
+                    _exit(0);
 				}
 			}
 		}
+        //padre
+		sleep(30);
+        for(int i=0;i<num;i++){
+		wait(NULL);
+        }
+        printf("processo padre termina aspettando e dormendo \n");
 	}
 }

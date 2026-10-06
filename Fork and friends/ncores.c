@@ -34,19 +34,20 @@ int main(int argc, char** argv) {
 					//figlio
 					int r=is_prime(num);
 					if(r==1){
-					printf("Numero inserito: %ld (Primo)\n",num);
+						printf("Numero inserito: %ld (Primo)\n",num);
 					}
 					exit(r);
-				}else{
-					//padre
-					int status;
-					waitpid(pid,&status,0);
-					if(WIFEXITED(status)){
-						int a=WEXITSTATUS(status);
-						if(a==1){
-							totale_primi++;
-						}
-					}
+				}
+			}
+		}
+		//padre
+		for(int i=1;i<argc;i++){
+			int status;
+			wait(&status);
+			if(WIFEXITED(status)){
+				int a=WEXITSTATUS(status);
+				if(a==1){
+					totale_primi++;
 				}
 			}
 		}
